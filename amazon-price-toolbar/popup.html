@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amazon Price Toolbar</title>
+    <style>
+      body {
+        margin: 0;
+        width: 350px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #f7f7f7;
+        color: #333333;
+      }
+
+      .apt-popup {
+        padding: 12px;
+      }
+
+      .apt-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .apt-header h1 {
+        font-size: 16px;
+        margin: 0;
+      }
+
+      .apt-count {
+        font-size: 12px;
+        color: #666666;
+        background: #eaeaea;
+        border-radius: 12px;
+        padding: 2px 8px;
+      }
+
+      .apt-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .apt-card {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .apt-title {
+        color: #232f3e;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .apt-title:hover {
+        text-decoration: underline;
+      }
+
+      .apt-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #555555;
+      }
+
+      .apt-price {
+        font-weight: 600;
+      }
+
+      .apt-date {
+        color: #777777;
+      }
+
+      .apt-delete {
+        align-self: flex-end;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: #c0392b;
+        padding: 4px 6px;
+        border-radius: 4px;
+      }
+
+      .apt-delete:hover {
+        background: rgba(192, 57, 43, 0.12);
+      }
+
+      .apt-empty {
+        text-align: center;
+        color: #777777;
+        padding: 24px 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="apt-popup">
+      <header class="apt-header">
+        <h1>お気に入り商品</h1>
+        <span id="apt-count" class="apt-count">0件</span>
+      </header>
+      <div id="apt-empty" class="apt-empty">
+        お気に入りに登録された商品はありません
+      </div>
+      <div id="apt-list" class="apt-list"></div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
