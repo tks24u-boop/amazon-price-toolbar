@@ -1,0 +1,278 @@
+/**
+ * Amazon Price Toolbar - Styles
+ * ツールバー・モーダルの装飾
+ */
+
+/* =============================================
+   ツールバー
+   ============================================= */
+
+.apt-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background: rgba(35, 47, 62, 0.97);
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  z-index: 2147483647;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  transition: height 0.2s ease;
+}
+
+/* 折りたたみ時 */
+.apt-toolbar.collapsed {
+  height: 8px;
+  cursor: pointer;
+}
+
+.apt-toolbar.collapsed:hover {
+  background: rgba(55, 67, 82, 0.97);
+}
+
+/* ツールバーコンテンツ */
+.apt-toolbar-content {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 16px;
+  height: 100%;
+}
+
+/* スペーサー（flexで右寄せ用） */
+.apt-spacer {
+  flex: 1;
+}
+
+/* =============================================
+   バッジ（ASIN・価格表示）
+   ============================================= */
+
+.apt-badge {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.apt-price-badge {
+  color: #febd69;
+}
+
+/* =============================================
+   ボタン
+   ============================================= */
+
+.apt-button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+}
+
+.apt-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* お気に入りボタン */
+.apt-favorite-button.apt-favorite-active {
+  color: #e74c3c;
+}
+
+/* お気に入りボタンのアニメーション */
+.apt-favorite-animate {
+  animation: apt-favorite-pop 0.3s ease;
+}
+
+@keyframes apt-favorite-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 折りたたみボタン */
+.apt-collapse-button {
+  font-size: 12px;
+}
+
+/* =============================================
+   モーダル
+   ============================================= */
+
+.apt-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2147483647;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.apt-modal-overlay.visible {
+  opacity: 1;
+}
+
+.apt-modal-content {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+  max-width: 900px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+/* 閉じるボタン */
+.apt-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.apt-modal-close:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+/* =============================================
+   期間切り替えボタン
+   ============================================= */
+
+.apt-range-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  margin-top: 8px;
+}
+
+.apt-range-button {
+  padding: 6px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.apt-range-button:hover {
+  background: #e8e8e8;
+}
+
+.apt-range-button.active {
+  background: #232f3e;
+  color: #ffffff;
+  border-color: #232f3e;
+}
+
+/* =============================================
+   画像コンテナ
+   ============================================= */
+
+.apt-image-container {
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.apt-keepa-graph {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* =============================================
+   読み込み中表示
+   ============================================= */
+
+.apt-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #666;
+}
+
+.apt-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f0f0f0;
+  border-top-color: #232f3e;
+  border-radius: 50%;
+  animation: apt-spin 1s linear infinite;
+}
+
+@keyframes apt-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =============================================
+   エラー表示
+   ============================================= */
+
+.apt-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #666;
+  padding: 20px;
+}
+
+.apt-error p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.apt-keepa-link {
+  color: #232f3e;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid #232f3e;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.apt-keepa-link:hover {
+  background: #232f3e;
+  color: #ffffff;
+}
