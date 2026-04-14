@@ -7,7 +7,16 @@ Amazonタイムセール（2026/4/14）のリサーチ → note下書き記事�
 - [x] タイムセールのリサーチ完了
 - [x] amasukiアカウントの直近3記事を分析してトンマナ完全一致で記事作成
 - [x] Amazonリンク（ASIN）を全て検証・修正済み
-- [ ] **noteへの下書き投稿（未完了）** ← ここをやる
+- [x] 投稿スクリプト作成済み（`post_draft.py`）
+- [ ] **noteへの下書き投稿（reCAPTCHA v3によりCloud環境からは自動ログイン不可）**
+
+## reCAPTCHAの問題と対処法
+note.comのログインはreCAPTCHA v3（invisible）を使用しており、Cloud Agent環境からはGoogleがトークン発行を拒否するため自動ログインが不可能。
+
+**解決方法**: ブラウザで手動ログインし、`_note_session_v5` Cookieを取得して環境変数 `NOTE_SESSION_COOKIE` にセットする。
+```
+NOTE_SESSION_COOKIE="cookie値" python3 note-drafts/post_draft.py
+```
 
 ## noteアカウント情報
 - URL: https://note.com/amasuki
