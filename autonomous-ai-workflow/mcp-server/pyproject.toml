@@ -1,0 +1,27 @@
+[project]
+name = "notebooklm-mcp-server"
+version = "1.0.0"
+description = "NotebookLM MCP Server for Autonomous AI Workflow"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp>=2.0.0",
+    "notebooklm-mcp-2026>=1.0.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.7.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.7.0",
+]
+
+[project.scripts]
+notebooklm-mcp-server = "server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-httpx>=0.30.0",
+]

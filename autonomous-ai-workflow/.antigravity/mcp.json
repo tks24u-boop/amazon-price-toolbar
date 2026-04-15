@@ -1,0 +1,29 @@
+{
+  "$schema": "https://antigravity.dev/schemas/mcp-config/v1",
+  "mcpServers": {
+    "notebooklm": {
+      "description": "NotebookLM ナレッジベースへの読み書き・クエリ・鮮度監視",
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "./mcp-server",
+        "python",
+        "./mcp-server/server.py"
+      ],
+      "env": {
+        "NOTEBOOKLM_API_BASE": "${NOTEBOOKLM_API_BASE:-http://localhost:8080}",
+        "DEFAULT_NOTEBOOK_ID": "${DEFAULT_NOTEBOOK_ID:-}"
+      },
+      "tools": [
+        "list_notebooks",
+        "add_source",
+        "query_notebook",
+        "create_implementation_plan",
+        "submit_approval",
+        "check_freshness",
+        "sync_artifact"
+      ]
+    }
+  }
+}
