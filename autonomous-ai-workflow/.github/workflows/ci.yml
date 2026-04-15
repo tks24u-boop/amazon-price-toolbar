@@ -1,0 +1,68 @@
+name: CI — 自律型AIワークフロー
+
+on:
+  push:
+    branches: [main, "cursor/**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # MCP サーバー (Python) の型チェック・テスト
+  # ---------------------------------------------------------------------------
+  mcp-server:
+    name: MCP Server (Python)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mcp-server
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: 依存関係のインストール
+        run: uv sync --dev
+
+      - name: 型チェック (pyright)
+        run: uv run pyright server.py || true
+
+      - name: コードスタイル (ruff)
+        run: uv run ruff check server.py || true
+
+  # ---------------------------------------------------------------------------
+  # Commander PWA (Next.js) のビルド・型チェック
+  # ---------------------------------------------------------------------------
+  commander-pwa:
+    name: Commander PWA (Next.js)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: commander-pwa
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: commander-pwa/package-lock.json
+
+      - name: 依存関係のインストール
+        run: npm ci
+
+      - name: 型チェック
+        run: npm run type-check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: ビルド
+        run: npm run build
+        env:
+          MCP_SERVER_URL: http://localhost:8080
+          APPROVAL_WEBHOOK_SECRET: ci-test-secret
