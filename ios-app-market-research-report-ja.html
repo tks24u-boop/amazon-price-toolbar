@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iOSアプリ市場調査レポート（少額・インディ向け）2026</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --text: #e8eaed;
+      --muted: #9aa0a6;
+      --accent: #5c9ded;
+      --warn: #f5a623;
+      --ok: #34a853;
+      --border: #2d3a4d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
+      margin: 0;
+      padding: 2rem 1rem 4rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin-top: 2rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--accent);
+    }
+    h3 { font-size: 1.05rem; margin-top: 1.5rem; color: var(--text); }
+    p { margin: 0.75rem 0; color: var(--text); }
+    ul, ol { padding-left: 1.35rem; color: var(--text); }
+    li { margin: 0.4rem 0; }
+    .note {
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      padding: 0.85rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+    }
+    .caution {
+      border-left-color: var(--warn);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.65rem 0.75rem;
+      text-align: left;
+    }
+    th { background: var(--surface); color: var(--muted); font-weight: 600; }
+    a { color: var(--accent); }
+    a:visited { color: #7eb6f0; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .ref-list { font-size: 0.88rem; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>iOSアプリ市場調査レポート<br><span style="font-weight:400;font-size:1rem;color:var(--muted);">少額予算・小規模チーム向け — 2026年時点の公開情報に基づく分析</span></h1>
+    <p class="meta">作成日: 2026年4月19日 &nbsp;|&nbsp; 目的: アプリ開発前の方向性・リスクの共有</p>
+  </header>
+
+  <section>
+    <h2>1. 調査の前提と限度</h2>
+    <p>本レポートは公開ブログ、業界レポート、ニュース記事など<strong>二次情報</strong>に基づいています。「少額で」「売れ行きが良い」は<strong>相対的な示唆</strong>であり、個別アプリの成功を保証するものではありません。特に「月数万ドル」などのニッチ推定は元データの定義次第で大きく変わるため、<strong>実装コストとの比較用の雰囲気</strong>として読んでください。</p>
+    <div class="note caution">
+      <strong>重要:</strong> サブスク課金アプリでは収益が上位アプリに集中する傾向が強く（後述）、「ジャンルが良くても」満足に回収できないケースが多数あります。
+    </div>
+  </section>
+
+  <section>
+    <h2>2. マーケット全体の印象（2026年前後）</h2>
+    <ul>
+      <li><strong>ゲーム</strong>はApp Store支出の<strong>大きな割合</strong>を占めるという分析が多い一方、企画・コンテンツ・運用・広告競争が激しく、少額予算だけでは勝ちにくい場面が多いです。</li>
+      <li><strong>ゲーム以外</strong>では、ヘルスケア、生産性、写真・動画などで<strong>サブスクリプション</strong>が収益の柱になっているという分析があります（RevenueCatなど）。</li>
+      <li>RevenueCatの概説記事では、データセット規模（11万以上のアプリ、数十億ドル規模の収益を分析）が明示されており、<strong>成長の二極化</strong>（上位は急成長・下位は減収）が強まっているとされています。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. 「少額開発で」狙いやすい方向性（戦略レベル）</h2>
+    <p>工数を抑えつつ売上につなげやすい、という意味でよく挙がるのは次のパターンです。</p>
+
+    <h3>3.1 ニッチダウン（垂直特化）</h3>
+    <p>一般的な習慣化・メモアプリではなく、「特定コミュニティや症状・シーンに絞った」機能セットにする手法です。競合が減り、単価・継続の設計がしやすい一方、<strong>タマは小さい</strong>のでマーケ・ASO・口コミ設計が重要です。</p>
+    <p>例として業界ブログでは、瞑想・痛み・産後・更年期など、細かいヘルス領域の例が挙がることがあります（数字は参考程度）。</p>
+
+    <h3>3.2 ユーティリティ（単機能・高頻度）</h3>
+    <p>「毎日または定期的に触る」単純な道具（カウントダウン、リマインダー、特定計算、現場チェックリストなど）は、開発範囲を切りやすく、ウィジェットや通知と相性が良いです。<strong>差別化はUI・速度・信頼・オフライン</strong>に寄せる例が多いです。</p>
+
+    <h3>3.3 リファレンス・専門ナビ系</h3>
+    <p>フィールドガイド、技術早見、業種別用語・換算、乗り物・Outdoorの安全情報のまとめなど、コンテンツ資産＋検索体験が核になります。コンテンツ権利と更新コストに注意が必要です。</p>
+
+    <h3>3.4 避けがたいが難易度が高いジャンル</h3>
+    <ul>
+      <li><strong>汎用SNS・汎用チャット</strong> — ネットワーク効果・審査・モデレーション負荷が大きい。</li>
+      <li><strong>大手が強い「総合」カテゴリ</strong> — 例: 総合動画編集、総合ノート、総合フィットネスなど（差別化なしでは露出・広告単価で不利）。</li>
+      <li><strong>AI単体プロダクト</strong> — RevenueCatでは「AIアプリは単価・初動は良いが離脱が速い」という指摘があり、長期の価値設計がないと厳しい、との分析があります。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. 収益化・プロダクト設計の示唆（データソース: RevenueCat 2026年概説）</h2>
+    <p>次の項目は <a href="https://www.revenuecat.com/blog/growth/subscription-app-trends-benchmarks-2026/">RevenueCat「The State of Subscription Apps in 10 minutes」（2026年）</a> に記載がある<strong>ベンチマーク傾向</strong>です。自アプリにそのまま当てはまるとは限りませんが、仮説検証の出発点になります。</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>トピック</th>
+          <th>内容（概略）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>成長の二極化</td>
+          <td>上位25%と下位25%でMRR成長率に大きな差。中間の「安定成長」ゾーンが薄いという指摘。</td>
+        </tr>
+        <tr>
+          <td>ハードペイウォール</td>
+          <td>Day 35 のトライアル→有料転換率が、フリーミアムより高いという比較。初動のRPI（説明文では60日時点）でも有利というデータが示されている。</td>
+        </tr>
+        <tr>
+          <td>トライアル初日</td>
+          <td>短期トライアルのキャンセルの多くが初日に集中するというデータ（オンボーディングでの価値証明が重要）。</td>
+        </tr>
+        <tr>
+          <td>トライアル長さ</td>
+          <td>長めのトライアルは転換に有利という比較もある一方、短いトライアルへ寄せるアプリも多い、との記述。</td>
+        </tr>
+        <tr>
+          <td>年額サブスク</td>
+          <td>初月に解約・自動更新オフが多いなど、年額でも「初週〜初月の価値訴求」が鍵、との指摘。</td>
+        </tr>
+        <tr>
+          <td>AI機能</td>
+          <td>収益・LTVは伸びやすい一方、継続が厳しいというトレードオフの指摘。</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">
+      実務では「hard paywall にする／しない」はカテゴリと規制（医療表現など）で変わります。A/Bテストと倫理的な説明義務をセットで設計してください。
+    </div>
+  </section>
+
+  <section>
+    <h2>5. 日本市場の補足（ゲーム中心の公開統計）</h2>
+    <p>インディ向けの非ゲーム別売上ランキングは、公開ソースでは断片的です。ゲームでは、売上ランキング上位にRPG比率が高い、新規トップ200入りにはオリジナル作品も多い一方で、上位はIP作品が強い、といった<strong>国内向け調査記事</strong>があります（例: <a href="https://gamebiz.jp/news/423510">gamebiz / スパイスマート調査の紹介</a>）。</p>
+    <p><strong>示唆:</strong> 日本で「ゲームで勝つ」は可能でも競争とマーケ費が重い。非ゲーム・ニッチ実用では、グローバルと同様に<strong>ASO・レビュー・ローカライズ（敬語・請求表記）</strong>が成果に直結しやすいです。</p>
+  </section>
+
+  <section>
+    <h2>6. 結論：少額予算で「勝ち筋」を作るためのチェックリスト</h2>
+    <ol>
+      <li><strong>誰のどんな毎日の痛みか</strong>を一文で言えるか（汎用すぎないか）。</li>
+      <li>初週に<strong>価値を証明できるUI</strong>か（RevenueCatの「初日キャンセル」問題への対応）。</li>
+      <li>サブスクにするか、買い切り＋アドオンか。<strong>継続の理由</strong>があるか。</li>
+      <li>医療・金融・子ども向けは<strong>法規・表現ガイドライン</strong>が重い。コスト見積りに含める。</li>
+      <li>競合のレビュー1スターから「未充足ニーズ」を読み、差別化仮説に落とす。</li>
+      <li>AIは<strong>付加価値</strong>として組み込み、主価値は非AIの体験で支える方が離脱対策になりやすい、という近年の分析と整合的です。</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>7. 参考リンク（一次に近い情報源）</h2>
+    <ul class="ref-list">
+      <li>RevenueCat — <a href="https://www.revenuecat.com/blog/growth/subscription-app-trends-benchmarks-2026/">Subscription app trends &amp; benchmarks 2026（ブログ要約）</a></li>
+      <li>RevenueCat — <a href="https://www.revenuecat.com/sosa-26-insights/">State of Subscription Apps 2026（洞察ページ）</a></li>
+      <li>Adjust × Sensor Tower — <a href="https://adjust.com/resources/ebooks/japan-app-trends-2025">Japan app trends 2025（PDF）</a></li>
+      <li>NICHES HUNTER — <a href="https://nicheshunter.app/blog/profitable-app-niches-2026">Profitable app niches の解説記事</a>（ニッチ例の参考。数字は独自推定の可能性あり）</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>本HTMLは調査資料です。投資・事業判断は必ず最新の一次情報と専門家の助言に基づいて行ってください。</p>
+  </footer>
+</body>
+</html>
